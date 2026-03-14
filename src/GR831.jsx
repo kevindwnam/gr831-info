@@ -234,7 +234,7 @@ function Card({ children, style={}, yellow=false }) {
 }
 
 function SecTitle({ children }) {
-  return <p style={{color:C.navy,fontSize:"18px",fontWeight:"900",margin:"0 0 14px",fontFamily:F}}>{children}</p>;
+  return <p className="sec-title" style={{color:C.navy,fontSize:"18px",fontWeight:"900",margin:"0 0 14px",fontFamily:F}}>{children}</p>;
 }
 
 // ── 페이지들 ─────────────────────────────────────────────────
@@ -243,7 +243,7 @@ function AboutPage() {
   return (
     <div>
       {/* 실적 */}
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"10px",marginBottom:"16px"}}>
+      <div className="grid-3" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"10px",marginBottom:"16px"}}>
         {[{y:"24학년도",n:"98명"},{y:"25학년도",n:"120명"},{y:"26학년도",n:"135명"}].map((d,i)=>(
           <div key={i} style={{background:i===2?C.navy:C.bgCard,borderRadius:"12px",padding:"16px 8px",textAlign:"center",border:`1px solid ${i===2?"transparent":C.border}`}}>
             <p style={{color:i===2?C.yellow:"#8099be",fontSize:"11px",margin:"0 0 4px",fontFamily:F}}>{d.y}</p>
@@ -325,7 +325,7 @@ function AboutPage() {
           </p>
 
           {/* 적중률 3개 */}
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"8px",marginBottom:"16px"}}>
+          <div className="grid-3" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"8px",marginBottom:"16px"}}>
             {[
               {label:"지문",val:"100%",sub:"EBS 연계",  bg:"#5c0a0a", border:"#e53935", labelColor:"#ff8a80", valColor:"#ffffff", subColor:"rgba(255,255,255,0.55)"},
               {label:"수학",val:"90%", sub:"출제 범위", bg:"#5c0a0a", border:"#e53935", labelColor:"#ff8a80", valColor:"#ffffff", subColor:"rgba(255,255,255,0.55)"},
@@ -510,7 +510,7 @@ function GuidePage() {
         <p style={{color:"rgba(255,255,255,0.8)",fontSize:"13.5px",lineHeight:"1.85",margin:"0 0 18px",fontFamily:F}}>
           <span style={{color:C.yellow,fontWeight:"700"}}>단답형 또는 50자 내외의 짧은 서술형 답</span>을 요구하는 논술고사. EBS 수능 연계교재를 중심으로 출제되며, 일반 논술고사와 달리 정답과 오답이 명확히 구분됩니다.
         </p>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px"}}>
+        <div className="grid-2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px"}}>
           {[{l:"대상",v:"내신 3~6등급"},{l:"준비기간",v:"6개월 이내"},{l:"수능 병행",v:"100% 가능"},{l:"지문 적중률",v:"100%"}].map((it,i)=>(
             <div key={i} style={{background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.12)",borderRadius:"10px",padding:"12px",textAlign:"center"}}>
               <p style={{color:"rgba(255,255,255,0.55)",fontSize:"11px",margin:"0 0 4px",fontFamily:F}}>{it.l}</p>
@@ -522,8 +522,8 @@ function GuidePage() {
 
       {/* 약술형 vs 일반논술 */}
       <SecTitle>약술형 VS 일반 논술</SecTitle>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"10px",marginBottom:"24px"}}>
-        <div style={{
+      <div className="grid-2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"10px",marginBottom:"24px"}}>
+        <div className="resp-card" style={{
           background:C.navy,borderRadius:"14px",padding:"16px",
           border:`2px solid ${C.yellow}`,
           boxShadow:`0 4px 14px rgba(26,52,97,0.2)`,
@@ -539,7 +539,7 @@ function GuidePage() {
             </div>
           ))}
         </div>
-        <div style={{
+        <div className="resp-card" style={{
           background:C.bgCard,borderRadius:"14px",padding:"16px",
           border:`1px solid ${C.border}`,
         }}>
@@ -627,7 +627,7 @@ function UniversitiesPage() {
         </div>
 
         {/* 기본 정보 3칸 */}
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"8px",marginBottom:"14px"}}>
+        <div className="grid-3" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"8px",marginBottom:"14px"}}>
           {infoRows.map((r,i)=>(
             <div key={i} style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:"12px",padding:"12px 8px",textAlign:"center",boxShadow:"0 1px 4px rgba(0,0,0,0.05)"}}>
               <p style={{fontSize:"18px",margin:"0 0 4px"}}>{r.icon}</p>
@@ -692,7 +692,7 @@ function UniversitiesPage() {
         {u.main&&(
           <div style={{background:`linear-gradient(135deg,#c49a00 0%,#f5c800 100%)`,borderRadius:"14px",padding:"16px",boxShadow:"0 4px 12px rgba(245,200,0,0.3)"}}>
             <p style={{color:C.navy,fontSize:"13px",fontWeight:"900",margin:"0 0 10px",fontFamily:F}}>🏆 GR831 가천대 적중 성과</p>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px"}}>
+            <div className="grid-2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px"}}>
               {["지문 100% 적중","수학 90% 적중","국어 80% 적중","전국 합격률 1위"].map((t,i)=>(
                 <div key={i} style={{background:"rgba(255,255,255,0.3)",borderRadius:"8px",padding:"8px 10px",display:"flex",alignItems:"center",gap:"6px"}}>
                   <span style={{color:C.navy,fontSize:"12px"}}>✓</span>
@@ -862,7 +862,7 @@ function ContentPage() {
   return (
     <div>
       <SecTitle>GR831 콘텐츠 구성</SecTitle>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"12px",marginBottom:"24px"}}>
+      <div className="grid-2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"12px",marginBottom:"24px"}}>
         {contentItems.map((c,i)=>(
           <div key={i} style={{
             borderRadius:"12px",
@@ -1256,24 +1256,43 @@ export default function App() {
         .ani{animation:fadeUp .25s ease;}
         ::-webkit-scrollbar{width:4px;}
         ::-webkit-scrollbar-thumb{background:rgba(26,52,97,.2);border-radius:2px;}
+        /* 전체: 단어 중간 줄바꿈 방지 (한글 keep-all) */
+        p,span,div,button,h1,h2,h3,li,td,th{word-break:keep-all;overflow-wrap:break-word;}
         /* 태블릿: 2컬럼 메뉴 */
         @media(min-width:600px){
           .menu-grid{display:grid!important;grid-template-columns:1fr 1fr;gap:10px;}
           .hero-h1{font-size:36px!important;}
-          .hero-badges{gap:10px!important;}
         }
-        /* 좁은 화면 (갤럭시 폴드/플립 320~389px) */
+        /* 좁은 화면 (갤럭시 폴드/플립 280~389px) */
         @media(max-width:389px){
-          .hero-h1{font-size:22px!important;line-height:1.35!important;}
-          .hero-highlight{font-size:17px!important;}
-          .hero-sub{font-size:12px!important;}
-          .hero-card{padding:20px 16px 18px!important;}
-          .menu-btn{padding:12px 12px!important;gap:10px!important;}
-          .menu-btn .menu-icon{width:38px!important;height:38px!important;font-size:18px!important;}
-          .menu-btn .menu-title{font-size:14px!important;}
+          /* 히어로 */
+          .hero-h1{font-size:clamp(18px,6.5vw,28px)!important;line-height:1.35!important;}
+          .hero-highlight{font-size:clamp(14px,5vw,20px)!important;}
+          .hero-sub{font-size:11px!important;}
+          .hero-card{padding:18px 14px 16px!important;}
+          /* 메뉴 버튼 */
+          .menu-btn{padding:11px 10px!important;gap:8px!important;}
+          .menu-btn .menu-icon{width:36px!important;height:36px!important;font-size:17px!important;}
+          .menu-btn .menu-title{font-size:13.5px!important;}
+          /* 그리드: 2열→1열, 3열→2열 */
+          .grid-2{grid-template-columns:1fr!important;}
+          .grid-3{grid-template-columns:1fr 1fr!important;}
+          /* 카드 패딩 축소 */
+          .resp-card{padding:12px!important;}
+          /* 섹션 타이틀 축소 */
+          .sec-title{font-size:15px!important;}
+          /* 본문 좌우 패딩 축소 */
+          .ani{padding:12px!important;}
         }
-        /* 전체: 단어 중간 줄바꿈 방지 (한글 keep-all) */
-        p,span,div,button,h1,h2,h3{word-break:keep-all;overflow-wrap:break-word;}
+        /* 극초소형 (280~319px, 갤럭시 폴드 접힌상태) */
+        @media(max-width:319px){
+          .hero-h1{font-size:clamp(16px,6vw,22px)!important;}
+          .hero-highlight{font-size:clamp(13px,4.5vw,17px)!important;}
+          .hero-card{padding:14px 10px 12px!important;}
+          .grid-3{grid-template-columns:1fr!important;}
+          .menu-btn{padding:10px 8px!important;}
+          .ani{padding:8px!important;}
+        }
       `}</style>
 
       {/* ── 헤더 ── */}
