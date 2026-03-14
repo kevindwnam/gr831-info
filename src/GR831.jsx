@@ -1262,6 +1262,18 @@ export default function App() {
           .hero-h1{font-size:36px!important;}
           .hero-badges{gap:10px!important;}
         }
+        /* 좁은 화면 (갤럭시 폴드/플립 320~389px) */
+        @media(max-width:389px){
+          .hero-h1{font-size:22px!important;line-height:1.35!important;}
+          .hero-highlight{font-size:17px!important;}
+          .hero-sub{font-size:12px!important;}
+          .hero-card{padding:20px 16px 18px!important;}
+          .menu-btn{padding:12px 12px!important;gap:10px!important;}
+          .menu-btn .menu-icon{width:38px!important;height:38px!important;font-size:18px!important;}
+          .menu-btn .menu-title{font-size:14px!important;}
+        }
+        /* 전체: 단어 중간 줄바꿈 방지 (한글 keep-all) */
+        p,span,div,button,h1,h2,h3{word-break:keep-all;overflow-wrap:break-word;}
       `}</style>
 
       {/* ── 헤더 ── */}
@@ -1279,7 +1291,7 @@ export default function App() {
           <div>
 
             {/* ━━━ 히어로 카드 ━━━ */}
-            <div style={{
+            <div className="hero-card" style={{
               background:C.navy,
               borderRadius:"20px",
               padding:"28px 22px 22px",
@@ -1316,8 +1328,8 @@ export default function App() {
                 }}>
                   <span style={{fontSize:"28px"}}>🏅</span>
                   <div>
-                    <p style={{color:C.yellow,fontSize:"20px",fontWeight:"900",margin:"0 0 2px",fontFamily:F}}>26학년도 135명 합격</p>
-                    <p style={{color:"rgba(255,255,255,0.75)",fontSize:"13px",margin:0,fontFamily:F}}>가천대 약술형논술 · 전국 합격률 1위</p>
+                    <p className="hero-highlight" style={{color:C.yellow,fontSize:"20px",fontWeight:"900",margin:"0 0 2px",fontFamily:F}}>26학년도 135명 합격</p>
+                    <p className="hero-sub" style={{color:"rgba(255,255,255,0.75)",fontSize:"13px",margin:0,fontFamily:F}}>가천대 약술형논술 · 전국 합격률 1위</p>
                   </div>
                 </div>
                 {/* 자문위원 */}
@@ -1332,8 +1344,8 @@ export default function App() {
                 }}>
                   <span style={{fontSize:"28px"}}>🎓</span>
                   <div>
-                    <p style={{color:C.white,fontSize:"16px",fontWeight:"900",margin:"0 0 2px",fontFamily:F}}>가천대 약논술 자문위원 출신 강사진</p>
-                    <p style={{color:"rgba(255,255,255,0.65)",fontSize:"13px",margin:0,fontFamily:F}}>출제 의도를 가장 잘 아는 팀</p>
+                    <p className="hero-highlight" style={{color:C.white,fontSize:"16px",fontWeight:"900",margin:"0 0 2px",fontFamily:F}}>가천대 약논술 자문위원 출신 강사진</p>
+                    <p className="hero-sub" style={{color:"rgba(255,255,255,0.65)",fontSize:"13px",margin:0,fontFamily:F}}>출제 의도를 가장 잘 아는 팀</p>
                   </div>
                 </div>
               </div>
@@ -1360,15 +1372,15 @@ export default function App() {
               </div>
               <div className="menu-grid" style={{display:"flex",flexDirection:"column",gap:"8px"}}>
                 {MENUS.filter(m=>["about","guide","universities","faq"].includes(m.id)).map((m)=>(
-                  <button key={m.id} onClick={()=>go(m.id)} style={{
+                  <button key={m.id} onClick={()=>go(m.id)} className="menu-btn" style={{
                     background:C.bgCard,border:`1px solid ${C.border}`,
                     borderRadius:"14px",padding:"14px 16px",
                     display:"flex",alignItems:"center",gap:"12px",
                     cursor:"pointer",textAlign:"left",width:"100%"
                   }}>
-                    <span style={{fontSize:"22px",width:"44px",height:"44px",background:`${C.navy}0d`,borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{m.emoji}</span>
-                    <div style={{flex:1}}>
-                      <p style={{color:C.navy,fontSize:"16px",fontWeight:"700",margin:"0 0 2px",fontFamily:F}}>{m.title}</p>
+                    <span className="menu-icon" style={{fontSize:"22px",width:"44px",height:"44px",background:`${C.navy}0d`,borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{m.emoji}</span>
+                    <div style={{flex:1,minWidth:0}}>
+                      <p className="menu-title" style={{color:C.navy,fontSize:"16px",fontWeight:"700",margin:"0 0 2px",fontFamily:F}}>{m.title}</p>
                       <p style={{color:C.textLight,fontSize:"12px",margin:0,fontFamily:F}}>{m.sub}</p>
                     </div>
                     <span style={{color:C.textLight,fontSize:"20px",flexShrink:0}}>›</span>
@@ -1387,15 +1399,15 @@ export default function App() {
               </div>
               <div className="menu-grid" style={{display:"flex",flexDirection:"column",gap:"8px"}}>
                 {["curriculum","content","location","halloffame"].map(id=>MENUS.find(m=>m.id===id)).map((m)=>(
-                  <button key={m.id} onClick={()=>go(m.id)} style={{
+                  <button key={m.id} onClick={()=>go(m.id)} className="menu-btn" style={{
                     background:C.bgCard,border:`1px solid ${C.border}`,
                     borderRadius:"14px",padding:"14px 16px",
                     display:"flex",alignItems:"center",gap:"12px",
                     cursor:"pointer",textAlign:"left",width:"100%"
                   }}>
-                    <span style={{fontSize:"22px",width:"44px",height:"44px",background:`${C.navy}0d`,borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{m.emoji}</span>
-                    <div style={{flex:1}}>
-                      <p style={{color:C.navy,fontSize:"16px",fontWeight:"700",margin:"0 0 2px",fontFamily:F}}>{m.title}</p>
+                    <span className="menu-icon" style={{fontSize:"22px",width:"44px",height:"44px",background:`${C.navy}0d`,borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{m.emoji}</span>
+                    <div style={{flex:1,minWidth:0}}>
+                      <p className="menu-title" style={{color:C.navy,fontSize:"16px",fontWeight:"700",margin:"0 0 2px",fontFamily:F}}>{m.title}</p>
                       <p style={{color:C.textLight,fontSize:"12px",margin:0,fontFamily:F}}>{m.sub}</p>
                     </div>
                     <span style={{color:C.textLight,fontSize:"20px",flexShrink:0}}>›</span>
